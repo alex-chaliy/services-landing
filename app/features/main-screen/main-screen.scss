@@ -1,0 +1,71 @@
+@use '../../scss/utils/page-base.scss' as *;
+@use '../../scss/mixins/position.scss' as *;
+
+@use '../../scss/utils/full-box.scss' as *;
+@use '../../scss/utils/darkener.scss' as *;
+
+@use '../../scss/variables/colors.scss' as *;
+@use '../../scss/functions.scss' as *;
+
+.app-main-screen {
+  @extend .app-page-screen-base;
+
+  overflow: hidden;
+
+  background: image-set(
+    url('/bg/main-screen__bg-x2.jpg') 2x,
+    url('/bg/main-screen__bg-x1.jpg') 1x
+  ) center top no-repeat;
+  background-size: cover;
+
+  &__darkener {
+    @include app-darkener(0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+  }
+
+  &__content {
+    @include position(relative);
+
+    z-index: 2;
+    color: $white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__action-box {
+    width: 100%;
+  }
+
+  &__headings {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $cyan;
+  }
+
+  & &__heading {
+    width: auto;
+    display: flex;
+    color: $cyan;
+    margin: 3.5rem 0 0;
+    text-shadow: -2px 2px 8px #000a;
+  }
+
+  & &__heading-1 {
+    position: relative;
+    left: 0;
+  }
+
+  & &__heading-2 {
+    margin: 0;
+    position: relative;
+    opacity: 0;
+  }
+}

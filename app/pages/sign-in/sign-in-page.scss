@@ -1,0 +1,5 @@
+@use '../../scss/utils/page-base.scss' as *;
+
+.app-sign-in-page {
+  @extend .app-page-base-centered;
+}

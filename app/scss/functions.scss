@@ -1,0 +1,5 @@
+$root-font-size: 16px;
+
+@function remm($value-in-px) {
+  @return #{ calc($value-in-px / $root-font-size) }rem;
+}

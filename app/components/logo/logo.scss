@@ -1,0 +1,21 @@
+@use '../../scss/animations/animations.scss' as *;
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: default;
+  position: relative;
+  animation: app-bounce .6s ease-out;
+  height: auto;
+
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+
+  &[href] {
+    cursor: pointer;
+  }
+}

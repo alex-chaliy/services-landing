@@ -1,0 +1,21 @@
+@use '../../../scss/utils/button-base.scss' as *;
+@use '../../../scss/utils/button-glass-effect.scss' as *;
+
+@use '../../../scss/variables/constants.scss' as *;
+@use '../../../scss/variables/colors.scss' as *;
+
+.burger-menu-button {
+  @extend .button-glass-effect;
+  width: $button-height;
+  padding: 0;
+
+  path {
+    transition: fill 0.5s;
+  }
+
+  &:hover {
+    .menu-image path {
+      fill: $cyan;
+    }
+  }
+}

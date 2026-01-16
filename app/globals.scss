@@ -1,0 +1,30 @@
+@use 'scss/resets.scss' as *;
+
+@use 'scss/core/spacing.scss' as *;
+@use 'scss/core/flex.scss' as *;
+
+@use 'scss/variables/colors.scss' as *;
+
+@use 'scss/variables/constants.scss' as *;
+@use 'scss/functions.scss' as *;
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-size: $root-font-size;
+}
+
+body {
+  background-color: $page-bg-color;
+  color: $black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  text-shadow: remm(1px) remm(1px) remm(5px) rgba(#000, 0.1);
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}

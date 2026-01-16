@@ -1,0 +1,16 @@
+@use '../../scss/utils/page-base.scss' as *;
+@use '../../scss/functions.scss' as *;
+
+.app-main-page {
+  &__text-screen {
+    @extend .app-page-screen-base;
+    height: auto;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: remm(16px);
+    line-height: 150%;
+    letter-spacing: remm(0.15px);
+  }
+}

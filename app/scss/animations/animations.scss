@@ -1,0 +1,16 @@
+@use '../functions.scss' as *;
+
+@keyframes app-bounce {
+  0% {
+    top: remm(-2px);
+  }
+  75% {
+    top: remm(-3px);
+  }
+  85% {
+    top: 0;
+  }
+  100% {
+    top: remm(-1.5px);
+  }
+}

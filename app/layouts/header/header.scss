@@ -1,0 +1,52 @@
+@use '../../scss/variables/colors.scss' as *;
+@use '../../scss/utils/glass-box.scss' as *;
+
+@use '../../scss/functions.scss' as *;
+
+$header-height: remm(48px);
+
+.app-header-layout {
+  display: flex;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  padding: remm(16px) remm(22px);
+  width: 100%;
+
+  .app-header {
+    @include app-glass-box($header-height, $header-height, 100%);
+    background-color: $header-bg;
+
+    padding: remm(8px);
+
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo {
+      margin-left: remm(15px);
+    }
+
+    &__logo-wrap,
+    &__nav-wrap {
+      position: relative;
+      z-index: 2;
+    }
+
+    &__nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__menu-button {
+      margin-left: remm(8px);
+    }
+
+    &__text-button {
+      margin-left: remm(8px);
+    }
+  }
+
+}

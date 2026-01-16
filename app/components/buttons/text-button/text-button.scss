@@ -1,0 +1,84 @@
+@use '../../../scss/utils/button-glass-effect.scss' as *;
+
+@use '../../../scss/variables/colors.scss' as *;
+
+@use '../../../scss/functions.scss' as *;
+
+.app-text-button {
+  @extend .button-glass-effect;
+  color: $white;
+
+  &__title {
+    position: relative;
+    z-index: 3;
+  }
+
+  // Sizes
+  &-sm {
+    height: remm(25px);
+    padding: remm(2px) remm(8px);
+    font-size: remm(10px);
+  }
+
+  &-md {
+    height: remm(32px);
+    padding: remm(4px) remm(12px);
+    font-size: remm(12px);
+  }
+
+  &-lg {
+    height: remm(46px);
+    padding: remm(6px) remm(20px);
+    font-size: remm(18px);
+  }
+
+  &-xlg {
+    height: remm(52px);
+    padding: remm(8px) remm(26px);
+    font-size: remm(22px);
+  }
+
+  // Background placement:
+  // on which background a button placed - dark or light
+  // Helps to make button text readable on any bg - dark or light
+  // By default it's readable on dark bg, but not readable on light bg
+  // So, here is a class to fix it
+  &-place-on-bg-light {
+    background-color: rgba($primary-color, 0.8);
+  }
+
+  // View Extensions:
+  // By default a button has view of Glass Effect button
+  // But, to highlight some actions, we need to add some other variations
+  // e.g., add a special border-color for a special featured action
+  &-super-feature-button {
+    .app-more-pseudo:after,
+    .app-hl-more-pseudo:after {
+      background: linear-gradient(to right, darkblue, rgb(16, 145, 145));
+      transition: opacity 0.5s;
+      opacity: 1;
+      z-index: -1;
+    }
+
+    .app-hl-more-pseudo:after {
+      background: linear-gradient(to left, darkblue, rgb(16, 145, 145));
+      opacity: 0;
+    }
+
+    &:hover .app-more-pseudo:after {
+      opacity: 0;
+    }
+
+    &:hover .app-hl-more-pseudo:after {
+      opacity: 1;
+    }
+
+    &:active .app-hl-more-pseudo:after {
+      opacity: 0.7;
+    }
+
+    .app-text-button__title {
+      color: $white;
+    }
+  }
+}
