@@ -1,7 +1,7 @@
 @use '../../scss/variables/colors.scss' as *;
 @use '../../scss/utils/glass-box.scss' as *;
-
 @use '../../scss/functions.scss' as *;
+@use '../../scss/breakpoints.scss' as *;
 
 $header-height: remm(48px);
 
@@ -26,6 +26,20 @@ $header-height: remm(48px);
 
     &__logo {
       margin-left: remm(15px);
+      margin-right: remm(15px);
+    }
+
+    &__menu-button {
+      display: none;
+    }
+
+    &__logo-wrap {
+      display: flex;
+      align-items: center;
+      font-size: remm(18px);
+      font-weight: 600;
+      color: $cyan;
+      font-family: 'Montserrat', sans-serif;
     }
 
     &__logo-wrap,
@@ -48,5 +62,21 @@ $header-height: remm(48px);
       margin-left: remm(8px);
     }
   }
+}
 
+@media (max-width: $bp-md) {
+  .app-header {
+    &__logo-title {
+      display: none !important;
+    }
+
+    &__text-button:not(&__text-button--highlighted) {
+      display: none;
+    }
+
+
+    & &__menu-button {
+      display: flex;
+    }
+  }
 }

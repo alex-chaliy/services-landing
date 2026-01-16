@@ -2,7 +2,7 @@ import gsap from 'gsap';
 
 export function animateHeaderOnScroll() {
   gsap.from('.app-header', {
-    backgroundColor: '#0000',
+    backgroundColor: '#0006',
     ease: 'none',
     duration: 1,
 
@@ -14,4 +14,21 @@ export function animateHeaderOnScroll() {
       end: 'bottom top',
     },
   });
+}
+
+export function animateButtonsOnInit() {
+  gsap.fromTo(
+    '.app-header__text-button',
+    {
+      opacity: 0,
+      x: 30,
+    },
+    {
+      opacity: 1,
+      x: 0,
+      duration: 0.5,
+      stagger: 0.2,
+      ease: 'power2.out',
+    }
+  );
 }

@@ -6,7 +6,7 @@ import Logo from '../../components/logo/Logo';
 import { memo, useRef } from 'react';
 // gsap imports
 import { useGSAP } from '@gsap/react';
-import { animateHeaderOnScroll } from './animations';
+import { animateButtonsOnInit, animateHeaderOnScroll } from './animations';
 
 export function Header() {
   const headerAnimationsContainer = useRef<HTMLDivElement>(null);
@@ -14,6 +14,7 @@ export function Header() {
   useGSAP(
     () => {
       animateHeaderOnScroll();
+      animateButtonsOnInit();
     },
     {
       dependencies: [],
@@ -26,11 +27,22 @@ export function Header() {
       <header className="app-header">
         <div className="app-header__logo-wrap">
           <Logo className="app-header__logo" mode="link" />
+
+          <div className="app-header__logo-title">Plumbing Services</div>
         </div>
         <div className="app-header__nav-wrap">
-          <TextButton className="app-header__text-button" title={'Blog'} mode={'link'} linkHref={'/blog'} />
-          <TextButton className="app-header__text-button" title={'Contacts'} mode={'link'} linkHref={'/contacts'} />
-          {/* <BurgerMenuButton className="app-header__menu-button" /> */}
+          <TextButton className="app-header__text-button" title={'Home'} mode={'link'} linkHref={'/'} />
+          <TextButton className="app-header__text-button" title={'About Us'} mode={'link'} linkHref={'/about-us'} />
+          <TextButton className="app-header__text-button" title={'Services'} mode={'link'} linkHref={'/services'} />
+          <TextButton className="app-header__text-button" title={'Pricing'} mode={'link'} linkHref={'/pricing'} />
+          <TextButton
+            className="app-header__text-button app-header__text-button--highlighted"
+            title={'Get a Quote'}
+            mode={'link'}
+            linkHref={'/get-a-quote'}
+            viewExtension="super-feature-button-3"
+          />
+          <BurgerMenuButton className="app-header__menu-button" />
         </div>
       </header>
     </div>

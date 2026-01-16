@@ -1,5 +1,6 @@
 @use '../../scss/utils/page-base.scss' as *;
 @use '../../scss/functions.scss' as *;
+@use '../../scss/breakpoints.scss' as *;
 
 .app-main-page {
   &__text-screen {
@@ -12,5 +13,32 @@
     font-size: remm(16px);
     line-height: 150%;
     letter-spacing: remm(0.15px);
+  }
+
+  & &__features-glass-card {
+    display: none;
+    width: 100%;
+    margin-bottom: remm(25px);
+    background-color: rgba(#000, 0.7);
+  }
+}
+
+@media (max-width: $bp-md) {
+  .app-main-page {
+    .app-features-block--grid .app-features-block__container {
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)) !important;
+    }
+  }
+}
+
+@media (max-width: $bp-lg) {
+  .app-main-page {
+    & &__features-glass-card {
+      display: flex;
+    }
+
+    .app-features-block--grid .app-features-block__container {
+      grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    }
   }
 }

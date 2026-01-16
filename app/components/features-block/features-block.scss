@@ -1,0 +1,72 @@
+@use '../../scss/utils/page-base.scss' as *;
+@use '../../scss/variables/colors.scss' as *;
+@use '../../scss/functions.scss' as *;
+
+.app-features-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: remm(32px);
+
+  &__title {
+    font-size: remm(28px);
+    font-weight: 600;
+    color: $white;
+    margin: 0;
+  }
+
+  &__container {
+    display: grid;
+    gap: remm(24px);
+    width: 100%;
+  }
+
+  &--grid &__container {
+    grid-template-columns: repeat(auto-fit, minmax(remm(180px), 1fr));
+  }
+
+  &--list &__container {
+    grid-template-columns: 1fr;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: remm(12px);
+    padding: remm(20px);
+    border-radius: remm(12px);
+    background-color: rgba($white, 0.05);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba($white, 0.1);
+      transform: translateY(remm(-4px));
+    }
+  }
+
+  &__icon {
+    width: remm(60px);
+    height: remm(60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $cyan;
+  }
+
+  &__item-title {
+    font-size: remm(18px);
+    font-weight: 600;
+    color: $white;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__item-description {
+    font-size: remm(14px);
+    color: rgba($white, 0.7);
+    margin: 0;
+    line-height: 1.6;
+    text-align: center;
+  }
+}

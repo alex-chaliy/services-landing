@@ -51,7 +51,9 @@
   // By default a button has view of Glass Effect button
   // But, to highlight some actions, we need to add some other variations
   // e.g., add a special border-color for a special featured action
-  &-super-feature-button {
+  &-super-feature-button,
+  &-super-feature-button-2,
+  &-super-feature-button-3 {
     .app-more-pseudo:after,
     .app-hl-more-pseudo:after {
       background: linear-gradient(to right, darkblue, rgb(16, 145, 145));
@@ -79,6 +81,25 @@
 
     .app-text-button__title {
       color: $white;
+      text-shadow: -1px 1px 4px rgba(#000, 0.7);
+    }
+  }
+
+  &-super-feature-button-2 {
+    .app-more-pseudo:after {
+      background: rgba(#000, 0.6) !important;
+    }
+    .app-hl-more-pseudo:after {
+      background: linear-gradient(to right, darkblue, rgb(16, 145, 145));
+    }
+  }
+
+  &-super-feature-button-3 {
+    .app-more-pseudo:after {
+      background: linear-gradient(to right, #ec5630, #ff6f00);
+    }
+    .app-hl-more-pseudo:after {
+      background: linear-gradient(to left, #ff7e5f, #ff6f00);
     }
   }
 }

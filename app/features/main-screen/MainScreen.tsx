@@ -12,14 +12,20 @@ import { useGSAP } from '@gsap/react';
 import MainHeading from '@/app/components/headings/main-heading/MainHeading';
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Logo from '@/app/components/logo/Logo';
 import {
+  animateActionBoxOnInit,
   animateActionButtonOnInit,
   animateHeadingOnInit,
-  animateHeadingsOnScroll,
+  animatePlumberOnInit,
+  animatePlumberOnScroll,
+  loopAnimationButtonCallNow,
 } from './animations';
 import TextButton from '@/app/components/buttons/text-button/TextButton';
 import GlassCard from '@/app/components/glass-card/GlassCard';
+import SubHeading from '@/app/components/headings/sub-heading/SubHeading';
+import PhoneIcon from '@/app/components/svg/PhoneIcon';
+import FeaturesBlock from '@/app/components/features-block/FeaturesBlock';
+import { DEFAULT_FEATURES } from '@/app/components/features-block/FeaturesBlock.constants';
 gsap.registerPlugin(ScrollTrigger);
 
 interface MainScreenProps {
@@ -29,15 +35,20 @@ interface MainScreenProps {
 export function MainScreen(props: MainScreenProps) {
   const { className } = { ...props };
   const classNames = cn('app-main-screen', className);
-  const iconSpriteNumbers = [...Array(5).keys()];
 
   const mainScreenAnimationsContainer = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
+      animateActionBoxOnInit();
+
       animateHeadingOnInit();
-      animateHeadingsOnScroll();
+
       animateActionButtonOnInit();
+      loopAnimationButtonCallNow();
+
+      animatePlumberOnInit();
+      animatePlumberOnScroll();
     },
     {
       dependencies: [],
@@ -48,35 +59,56 @@ export function MainScreen(props: MainScreenProps) {
 
   return (
     <div className={classNames} ref={mainScreenAnimationsContainer} id="app-main-screen">
-      <div className="app-main-screen__icon-sprites">
-        {iconSpriteNumbers.map((i: number) => (
-          <div className={`app-main-screen__icon-sprite app-main-screen__icon-sprite-${i + 1}`} key={i + 1} />
-        ))}
-      </div>
-
       <div className="app-main-screen__darkener"></div>
 
       <div className="app-main-screen__content">
-        <GlassCard className="app-main-screen__glass-card app-main-screen__action-box">
-          <div className="app-main-screen__headings">
-            <MainHeading
-              title="Reliable Plumber Services"
-              className="app-main-screen__heading app-main-screen__heading-1"
-            />
-            <MainHeading
-              title="Your Trusted Local Plumber"
-              className="app-main-screen__heading app-main-screen__heading-2"
-            />
+        <div className="app-main-screen__action-section">
+          <GlassCard className="app-main-screen__action-box app-main-screen__glass-card">
+            <div className="app-main-screen__headings">
+              <MainHeading
+                title="Reliable Plumber Services"
+                className="app-main-screen__heading app-main-screen__heading-1"
+              />
+              <SubHeading
+                title="Your Trusted Local Plumber"
+                className="app-main-screen__heading app-main-screen__heading-2"
+                size="md"
+              />
+            </div>
+
+            <div className="app-main-screen__action-buttons">
+              <TextButton
+                className="app-main-screen__action-button"
+                title={'Request Service'}
+                viewExtension="super-feature-button"
+                size="xlg"
+              />
+              <TextButton
+                className="app-main-screen__action-button app-main-screen__action-button--call-now"
+                title={'Request Service'}
+                viewExtension="super-feature-button-2"
+                size="xlg"
+              >
+                <span className="app-text-button__title app-text-button__title-1">
+                  Call Now
+                </span>
+                <span className="app-text-button__title app-text-button__title-2">
+                  <PhoneIcon className="app-main-screen__phone-icon" />
+                  123-456-7890
+                </span>
+              </TextButton>
+            </div>
+          </GlassCard>
+          <div className="app-main-screen__plumber">
+            <img src="/img/plumber.png" alt="" className="app-main-screen__plumber-img" />
           </div>
+        </div>
 
-          <TextButton
-            className="app-main-screen__action-button"
-            title={'Request Service'}
-            viewExtension="super-feature-button"
-            size="xlg"
-          />
-        </GlassCard>
-
+        <div className="app-main-screen__features-section">
+          <GlassCard className="app-main-screen__features-box app-main-screen__glass-card">
+            <FeaturesBlock features={[...DEFAULT_FEATURES]} />
+          </GlassCard>
+        </div>
       </div>
     </div>
   );

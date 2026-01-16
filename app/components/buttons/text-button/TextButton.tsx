@@ -13,6 +13,7 @@ import { DEFAULT_PLACE_ON_BG, DEFAULT_TEXT_BUTTON_HTML_TYPE, DEFAULT_TEXT_BUTTON
 interface TextButtonProps {
   className?: string;
   title?: string;
+  children?: React.ReactNode;
   size?: UIElementSizes;
 
   mode?: TextButtonModes;
@@ -24,12 +25,13 @@ interface TextButtonProps {
 
   type?: TextButtonHtmlTypes; // works with mode 'button'
 
-  viewExtension?: 'default-view-extension' | 'super-feature-button';
+  viewExtension?: 'default-view-extension' | 'super-feature-button' | 'super-feature-button-2' | 'super-feature-button-3';
 }
 
 export default function TextButton(props: TextButtonProps) {
   const {
-    title = 'Click Me!',
+    title,
+    children,
     className,
     size = 'default-size',
     mode = DEFAULT_TEXT_BUTTON_MODE,
@@ -63,7 +65,8 @@ export default function TextButton(props: TextButtonProps) {
             <span className="app-hl-more-pseudo" />
           </span>
           <span className="app-more-pseudo"></span>
-          <span className="app-text-button__title">{title}</span>
+          {!children && <span className="app-text-button__title">{title}</span>}
+          {children && <span className="app-text-button__children">{children}</span>}
         </span>
       </Link>
     );
@@ -76,7 +79,8 @@ export default function TextButton(props: TextButtonProps) {
           <span className="app-hl-more-pseudo" />
         </span>
         <span className="app-more-pseudo"></span>
-        <span className="app-text-button__title">{title}</span>
+        {!children && <span className="app-text-button__title">{title}</span>}
+        {children && <span className="app-text-button__children">{children}</span>}
       </span>
     </button>
   );

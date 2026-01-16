@@ -6,6 +6,9 @@
 
 @use '../../scss/variables/colors.scss' as *;
 @use '../../scss/functions.scss' as *;
+@use '../../scss/breakpoints.scss' as *;
+
+$action-box-width: remm(500px);
 
 .app-main-screen {
   @extend .app-page-screen-base;
@@ -13,10 +16,12 @@
   overflow: hidden;
 
   background: image-set(
-    url('/bg/main-screen__bg-x2.jpg') 2x,
-    url('/bg/main-screen__bg-x1.jpg') 1x
-  ) center top no-repeat;
+      url('/bg/main-screen__bg-x2.jpg') 2x,
+      url('/bg/main-screen__bg-x1.jpg') 1x
+    )
+    center top no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 
   &__darkener {
     @include app-darkener(0.5);
@@ -24,21 +29,8 @@
     z-index: 1;
   }
 
-  &__content {
-    @include position(relative);
-
-    z-index: 2;
-    color: $white;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-  }
-
-  &__action-box {
-    width: 100%;
+  & &__glass-card {
+    background-color: rgba(#000, 0.4);
   }
 
   &__headings {
@@ -54,18 +46,157 @@
     width: auto;
     display: flex;
     color: $cyan;
-    margin: 3.5rem 0 0;
-    text-shadow: -2px 2px 8px #000a;
+    text-shadow: -2px 2px 8px #0009;
   }
 
   & &__heading-1 {
-    position: relative;
-    left: 0;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
   }
 
   & &__heading-2 {
-    margin: 0;
-    position: relative;
-    opacity: 0;
+    margin-bottom: 1rem;
+  }
+
+  &__content {
+    @include position(relative);
+
+    z-index: 2;
+    color: $white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__action-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  & &__action-box {
+    display: flex;
+    align-self: center;
+    width: 50%;
+    padding: remm(50px) remm(30px);
+  }
+
+  &__action-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .app-text-button {
+      max-width: remm(250px);
+      width: 49%;
+      margin-right: 2%;
+      justify-content: center;
+      padding: remm(12px) remm(16px);
+      height: remm(58px);
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .app-text-button__title {
+      display: flex;
+      justify-self: center;
+
+      &-1 {
+        font-size: remm(12px);
+        margin-bottom: remm(2px);
+        text-transform: uppercase;
+      }
+
+      &-2 {
+        font-size: remm(20px);
+        align-items: center;
+      }
+    }
+
+    .app-main-screen__phone-icon {
+      margin-right: remm(10px);
+      position: relative;
+      top: remm(-10px);
+    }
+  }
+
+  &__plumber {
+    width: 50%;
+    height: auto;
+    display: flex;
+    align-self: end;
+    justify-content: center;
+
+    &-img {
+      width: 50%;
+    }
+  }
+
+  &__features-section {
+    width: 100%;
+  }
+
+  & &__features-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .app-main-screen {
+    &__action-buttons {
+      .app-text-button {
+        width: 100%;
+        max-width: none;
+      }
+    }
+
+    &__plumber {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $bp-lg) {
+  .app-main-screen {
+    &__action-section {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    & &__action-box {
+      width: 100%;
+      padding: remm(30px);
+      transform: none !important;
+    }
+
+    &__action-buttons {
+      flex-direction: column;
+      align-items: center;
+
+      .app-text-button {
+        margin: 0 0 remm(16px) 0;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__plumber {
+      width: 100%;
+
+      &-img {
+        width: remm(250px);
+      }
+    }
+
+    &__features-section {
+      display: none;
+    }
   }
 }
