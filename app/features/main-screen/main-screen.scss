@@ -14,7 +14,6 @@ $action-box-width: remm(500px);
   @extend .app-page-screen-base;
 
   overflow: hidden;
-
   background: image-set(
       url('/bg/main-screen__bg-x2.jpg') 2x,
       url('/bg/main-screen__bg-x1.jpg') 1x
@@ -104,7 +103,7 @@ $action-box-width: remm(500px);
 
     .app-text-button__title {
       display: flex;
-      justify-self: center;
+      justify-content: center;
 
       &-1 {
         font-size: remm(12px);
@@ -148,6 +147,8 @@ $action-box-width: remm(500px);
 
 @media (max-width: $bp-md) {
   .app-main-screen {
+    background-attachment: scroll;
+
     &__action-buttons {
       .app-text-button {
         width: 100%;
