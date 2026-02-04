@@ -18,7 +18,7 @@ export function animateHeaderOnScroll() {
 
 export function animateButtonsOnInit() {
   gsap.fromTo(
-    '.app-header__text-button',
+    '.app-header__animated',
     {
       opacity: 0,
       x: 30,
@@ -27,7 +27,7 @@ export function animateButtonsOnInit() {
       opacity: 1,
       x: 0,
       duration: 0.5,
-      stagger: 0.2,
+      stagger: 0.1,
       ease: 'power2.out',
     }
   );

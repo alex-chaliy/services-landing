@@ -1,7 +1,7 @@
 @use '../mixins/position.scss' as *;
 
-@mixin app-full-box($height: 100%) {
+@mixin app-full-box($height: 100%, $width: 100%) {
   @include position(absolute);
-  width: 100%;
   height: $height;
+  width: $width;
 }

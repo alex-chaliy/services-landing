@@ -1,5 +1,4 @@
 @use '../functions.scss' as *;
 
-$button-height: 32px;
-
+$button-height: remm(32px);
 $page-side-padding: remm(22px);

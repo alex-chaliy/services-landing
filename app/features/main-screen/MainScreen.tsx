@@ -19,7 +19,7 @@ import {
   animatePlumberOnInit,
   animatePlumberOnScroll,
   loopAnimationButtonCallNow,
-} from './animations';
+} from './main-screen.animations';
 import TextButton from '@/app/components/buttons/text-button/TextButton';
 import GlassCard from '@/app/components/glass-card/GlassCard';
 import SubHeading from '@/app/components/headings/sub-heading/SubHeading';

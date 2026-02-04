@@ -7,8 +7,17 @@ import { UIElementSizes } from '../../../models/UIElementSizes.model';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { TextButtonHtmlTypes, TextButtonModes, TextButtonPlaceOnBGTypes } from './TextButton.model';
-import { DEFAULT_PLACE_ON_BG, DEFAULT_TEXT_BUTTON_HTML_TYPE, DEFAULT_TEXT_BUTTON_MODE } from './TextButton.constants';
+import {
+  TextButtonHtmlTypes,
+  TextButtonModes,
+  TextButtonPlaceOnBGTypes,
+  TextButtonViewExtensions,
+} from './TextButton.model';
+import {
+  DEFAULT_PLACE_ON_BG,
+  DEFAULT_TEXT_BUTTON_HTML_TYPE,
+  DEFAULT_TEXT_BUTTON_MODE,
+} from './TextButton.constants';
 
 interface TextButtonProps {
   className?: string;
@@ -25,7 +34,7 @@ interface TextButtonProps {
 
   type?: TextButtonHtmlTypes; // works with mode 'button'
 
-  viewExtension?: 'default-view-extension' | 'super-feature-button' | 'super-feature-button-2' | 'super-feature-button-3';
+  viewExtension?: TextButtonViewExtensions;
 }
 
 export default function TextButton(props: TextButtonProps) {

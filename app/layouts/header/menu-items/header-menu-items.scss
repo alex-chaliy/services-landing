@@ -1,0 +1,32 @@
+@use '../../../scss/variables/colors.scss' as *;
+@use '../../../scss/functions.scss' as *;
+@use '../../../scss/breakpoints.scss' as *;
+
+.app-header__menu-items {
+  transition: height 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+
+  .app-header__text-button {
+    margin-left: remm(8px);
+  }
+}
+
+@media (max-width: ($bp-md - 1px)) {
+  .app-header__menu-items {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 remm(8px) remm(8px);
+
+    .app-header__text-button {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .app-header__text-button:not(:first-child) {
+      margin-top: remm(8px);
+    }
+  }
+}

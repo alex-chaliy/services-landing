@@ -1,6 +1,6 @@
 @use './full-box.scss' as *;
 
-@mixin app-darkener($opacity: 0.5) {
-  @include app-full-box;
+@mixin app-darkener($opacity: 0.5, $height: 100%, $width: 100%) {
+  @include app-full-box($height, $width);
   background-color: rgba(#000, $opacity);
 }

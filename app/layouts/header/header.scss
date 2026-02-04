@@ -2,6 +2,7 @@
 @use '../../scss/utils/glass-box.scss' as *;
 @use '../../scss/functions.scss' as *;
 @use '../../scss/breakpoints.scss' as *;
+@use '../../scss/utils/darkener.scss' as *;
 
 $header-height: remm(48px);
 
@@ -15,22 +16,30 @@ $header-height: remm(48px);
   width: 100%;
 
   .app-header {
-    @include app-glass-box($header-height, $header-height, 100%);
+    @include app-glass-box(remm(24px), auto, 100%);
     background-color: $header-bg;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+    z-index: 5;
 
-    padding: remm(8px);
-
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    &__content {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: $header-height;
+      border-radius: $header-height;
+      padding: remm(8px);
+    }
 
     &__logo {
       margin-left: remm(15px);
       margin-right: remm(15px);
-    }
-
-    &__menu-button {
-      display: none;
+      transform: rotate(0deg);
+      transition: transform 0.3s ease;
     }
 
     &__logo-wrap {
@@ -57,26 +66,72 @@ $header-height: remm(48px);
     &__menu-button {
       margin-left: remm(8px);
     }
+  }
+}
 
-    &__text-button {
-      margin-left: remm(8px);
+@media (max-width: ($bp-md - 1px)) {
+  .app-hide-on-md {
+    display: none !important;
+  }
+
+  .app-show-on-md {
+    display: flex !important;
+  }
+
+  .app-header-layout {
+    height: auto !important;
+  }
+
+  .app-header {
+    &__nav-wrap {
+      position: static !important;
+    }
+  }
+
+  .app-header-layout {
+    &__mob-menu-drop-shadow {
+      @include app-darkener(0.5, 100vh, 100%);
+      position: fixed;
+      backdrop-filter: blur(8px);
+      display: block;
+      z-index: 4;
+      cursor: pointer;
+    }
+
+    &:not(&--mobile-menu-opened) &__mob-menu-drop-shadow {
+      display: none !important;
+    }
+
+    &:not(&--mobile-menu-opened) {
+      .app-header__mobile-menu-items {
+        height: 0 !important;
+        overflow: hidden;
+        padding-bottom: 0 !important;
+      }
+    }
+
+    &--mobile-menu-opened {
+      height: 100vh !important;
+      align-items: flex-start;
+
+      .app-header__mobile-menu-items {
+        height: remm(200px) !important;
+        overflow: visible;
+      }
+
+      .app-header__logo {
+        transform: rotate(20deg);
+      }
     }
   }
 }
 
-@media (max-width: $bp-md) {
-  .app-header {
-    &__logo-title {
-      display: none !important;
-    }
+@media (min-width: $bp-md) {
+  .app-hide-on-more-md {
+    display: none !important;
+  }
 
-    &__text-button:not(&__text-button--highlighted) {
-      display: none;
-    }
-
-
-    & &__menu-button {
-      display: flex;
-    }
+  .app-show-on-more-md {
+    display: flex !important;
   }
 }

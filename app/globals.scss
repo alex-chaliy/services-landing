@@ -5,8 +5,11 @@
 
 @use 'scss/variables/colors.scss' as *;
 
+@use 'scss/breakpoints.scss' as *;
 @use 'scss/variables/constants.scss' as *;
 @use 'scss/functions.scss' as *;
+
+$root-font-size-mobile: 18px;
 
 body,
 html {
@@ -27,4 +30,12 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+
+
+@media (max-width: ($bp-md - 1px)) {
+  html, body {
+    font-size: $root-font-size-mobile;
+  }
 }

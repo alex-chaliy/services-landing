@@ -23,7 +23,7 @@ $action-box-width: remm(500px);
   background-attachment: fixed;
 
   &__darkener {
-    @include app-darkener(0.5);
+    @include app-darkener(0.5, 100%, 100%);
     backdrop-filter: blur(3px);
     z-index: 1;
   }

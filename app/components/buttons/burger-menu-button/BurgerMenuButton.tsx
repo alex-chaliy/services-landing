@@ -5,14 +5,19 @@ import { memo } from 'react';
 
 interface BurgerMenuButtonProps {
   className?: string;
+  handleClick?: () => void;
+  isActive?: boolean;
 }
 
 export function BurgerMenuButton(props: BurgerMenuButtonProps) {
-  const { className } = { ...props };
-  const classNames = cn('burger-menu-button', className);
+  const { className, handleClick, isActive } = { ...props };
+  const classNames = cn('burger-menu-button', className, {
+    'burger-menu-button--active': isActive,
+  });
+
   // console.log('BurgerMenuButton rendered');
   return (
-    <button className={classNames}>
+    <button className={classNames} onClick={handleClick}>
       <span className="app-hover-layout">
         <span className="app-hl-more-pseudo" />
       </span>
