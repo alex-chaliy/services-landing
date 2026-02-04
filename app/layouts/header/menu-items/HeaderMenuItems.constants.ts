@@ -8,7 +8,6 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     title: 'Get a Quote',
     linkHref: '/get-a-quote',
-    isHighlighted: true,
     viewExtension: 'super-feature-button-3',
   },
 ];
