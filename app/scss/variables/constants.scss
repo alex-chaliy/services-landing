@@ -1,4 +1,8 @@
 @use '../functions.scss' as *;
 
 $button-height: remm(32px);
-$page-side-padding: remm(22px);
+
+// here is important to use px not rem
+// beacause distance from the screen edge should be constant
+$page-side-padding: 16px;
+$page-vert-padding: 16px;
