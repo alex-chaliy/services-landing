@@ -10,6 +10,11 @@
 @use 'scss/functions.scss' as *;
 
 $root-font-size-mobile: 18px;
+$root-font-size-xlg: 20px;
+$root-font-size-xxlg: 25px;
+$root-font-size-hd: 30px;
+$root-font-size-xhd: 40px;
+$root-font-size-xxhd: 50px;
 
 body,
 html {
@@ -32,10 +37,38 @@ body {
   box-sizing: border-box;
 }
 
-
-
 @media (max-width: ($bp-md - 1px)) {
   html, body {
     font-size: $root-font-size-mobile;
+  }
+}
+
+@media (min-width: ($bp-xlg)) {
+  html, body {
+    font-size: $root-font-size-xlg;
+  }
+}
+
+@media (min-width: ($bp-xxlg)) {
+  html, body {
+    font-size: $root-font-size-xxlg;
+  }
+}
+
+@media (min-width: ($bp-hd)) {
+  html, body {
+    font-size: remm($root-font-size-hd);
+  }
+}
+
+@media (min-width: ($bp-xhd)) {
+  html, body {
+    font-size: remm($root-font-size-xhd);
+  }
+}
+
+@media (min-width: ($bp-xxhd)) {
+  html, body {
+    font-size: remm($root-font-size-xxhd);
   }
 }

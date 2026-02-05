@@ -14,7 +14,7 @@ interface LogoProps {
 export default function Logo(props: LogoProps) {
   const {
     className,
-    width = '26px',
+    width = '1.625rem',
     height = 'auto',
     alt = 'App Logo',
     mode = 'default',
