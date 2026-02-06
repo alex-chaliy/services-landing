@@ -134,7 +134,7 @@ $action-box-width: remm(500px);
     &-img {
       display: block;
       width: 50%;
-      max-width: remm(300px);
+      max-width: remm(280px);
       height: auto;
     }
   }
@@ -148,7 +148,7 @@ $action-box-width: remm(500px);
   }
 }
 
-@media (max-width: $bp-lg) {
+@media (max-width: $bp-md) {
   .app-main-screen {
     background-attachment: scroll;
 
@@ -165,7 +165,7 @@ $action-box-width: remm(500px);
   }
 }
 
-@media (max-width: $bp-xlg) {
+@media (max-width: $bp-lg) {
   .app-main-screen {
     &__action-section {
       flex-direction: column-reverse;
@@ -195,7 +195,7 @@ $action-box-width: remm(500px);
       width: 100%;
 
       &-img {
-        width: remm(250px);
+        width: remm(210px);
       }
     }
 

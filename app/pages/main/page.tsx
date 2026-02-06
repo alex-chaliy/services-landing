@@ -17,12 +17,12 @@ export default function MainPage() {
           title={'Reliable Plumber Services'}
         />
         <SubHeading
-          className="app-main-page__sub-heading app-mb-10"
+          className="app-main-page__sub-heading app-mb-16"
           title={'Your Trusted Local Plumber'}
         />
         <GlassCard className="app-main-page__features-glass-card">
           <FeaturesBlock
-            className="app-main-page__features-block app-mt-50"
+            className="app-main-page__features-block"
             features={[...DEFAULT_FEATURES]}
           />
         </GlassCard>
