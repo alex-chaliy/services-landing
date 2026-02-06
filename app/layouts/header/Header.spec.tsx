@@ -22,11 +22,12 @@ jest.mock('../../components/buttons/text-button/TextButton', () => {
   };
 });
 jest.mock('../../components/buttons/burger-menu-button/BurgerMenuButton', () => {
-  return function DummyBurgerMenuButton({ handleClick, isActive }: any) {
+  return function DummyBurgerMenuButton({ handleClick, isActive, className }: any) {
     return React.createElement('button', {
       onClick: handleClick,
       'data-testid': 'burger-menu-button',
       'data-active': isActive,
+      className: className,
     }, 'Menu');
   };
 });
@@ -51,7 +52,7 @@ describe('Header Component', () => {
       render(<Header />);
 
       expect(screen.getByTestId('logo')).toBeInTheDocument();
-      expect(screen.getByTestId('header-menu-items')).toBeInTheDocument();
+      expect(screen.getAllByTestId('header-menu-items')).toHaveLength(2);
       expect(screen.getByTestId('burger-menu-button')).toBeInTheDocument();
     });
 
@@ -201,8 +202,8 @@ describe('Header Component', () => {
       const logoTitle = container.querySelector('.app-header__logo-title');
       expect(logoTitle).toHaveClass('app-hide-on-md');
 
-      const burgerButton = screen.getByTestId('burger-menu-button').closest('.app-header__menu-button');
-      expect(burgerButton?.parentElement).toHaveClass('app-show-on-md');
+      const menuButtonWrapper = container.querySelector('.app-header__menu-button');
+      expect(menuButtonWrapper).toHaveClass('app-show-on-md');
     });
   });
 
